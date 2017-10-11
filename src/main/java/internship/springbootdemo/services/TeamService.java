@@ -8,4 +8,5 @@ import java.util.List;
 public interface TeamService {
     List<Team> findAllTeams();
     List<Player> findPlayersOfTeam(Long id);
+    List<Long> findPlayerIdsOfTeam(Long teamId);
 }

@@ -23,4 +23,5 @@ public class PlayerServiceImpl implements PlayerService {
     public List<Team> findTeamsOfPlayer(Long id) {
         return playerRepository.findTeamsOfPlayer(id);
     }
+
 }

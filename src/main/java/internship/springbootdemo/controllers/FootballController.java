@@ -50,4 +50,10 @@ public class FootballController {
     public List<Team> viewAllTeams() {
         return teamService.findAllTeams();
     }
+
+    @RequestMapping("/view-player-ids-of-team/{id}")
+    @ResponseBody
+    public List<Long> findPlayerIdsOfTeam(@PathVariable("id") Long teamId) {
+        return teamService.findPlayerIdsOfTeam(teamId);
+    }
 }

@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface TeamRepository {
     List<Team> getAllTeams();
-    List<Player> findPlayersOfTeam(Long id);
+    List<Player> findPlayersOfTeam(Long teamId);
+    List<Long> findPlayerIdsOfTeam(Long teamId);
 }

@@ -22,4 +22,9 @@ public class TeamServiceImpl implements TeamService{
     public List<Player> findPlayersOfTeam(Long id) {
         return teamRepository.findPlayersOfTeam(id);
     }
+
+    @Override
+    public List<Long> findPlayerIdsOfTeam(Long teamId) {
+        return teamRepository.findPlayerIdsOfTeam(teamId);
+    }
 }
