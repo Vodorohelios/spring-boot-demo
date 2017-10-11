@@ -21,23 +21,23 @@ public class FootballController {
     @Autowired
     private PlayerService playerService;
     
-//    /**
-//     *  View all players that was in this team.
-//     */
-//    @RequestMapping("/view-team/{id}")
-//    public @ResponseBody
-//    List<Player> viewTeam(@PathVariable("id") Long id) {
-//        return teamService.findPlayersOfTeam(id); // returns list of Team Objects
-//    }
+    /**
+     *  View all players that was in this team.
+     */
+    @RequestMapping("/view-team/{id}")
+    public @ResponseBody
+    List<Player> viewTeam(@PathVariable("id") Long id) {
+        return teamService.findPlayersOfTeam(id); // returns list of Player Objects
+    }
     
-//    /**
-//     *  View all teams where player was.
-//     */
-//    @RequestMapping("/view-player/{id}")
-//    public @ResponseBody
-//    List<Team> viewPlayer(@PathVariable("id") Long id) {
-//        return playerService.findTeamsOfPlayer(id); // returns list of Player Objects
-//    }
+    /**
+     *  View all teams where player was.
+     */
+    @RequestMapping("/view-player/{id}")
+    public @ResponseBody
+    List<Team> viewPlayer(@PathVariable("id") Long id) {
+        return playerService.findTeamsOfPlayer(id); // returns list of Team Objects
+    }
 
     @RequestMapping("/view-all-players")
     @ResponseBody
