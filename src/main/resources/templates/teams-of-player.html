@@ -14,17 +14,8 @@
     <div>
         <table border="1">
             <tr th:each="team : ${teams}">
-                <td>
-                    <a href="#" th:href="@{/teams/{id}(id=__${team.id}__)}" th:text="${team.name}"></a>
-                </td>
-            </tr>
-        </table>
-        <br />
-        <table border="1">
-            <tr th:each="player : ${players}">
-                <td>
-                    <a href="#" th:href="@{/players/{id}(id=__${player.id}__)}" th:text="${player.name}"></a>
-                </td>
+                <td th:text="${team.id}"></td>
+                <td th:text="${team.name}"></td>
             </tr>
         </table>
     </div>

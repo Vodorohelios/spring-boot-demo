@@ -28,9 +28,13 @@ public class PlayerRepositoryImpl implements PlayerRepository {
 
     @Override
     public List<Team> findTeamsOfPlayer(Long playerId) {
-        String hql = "select t.id, t.name from Player p " +
-                " inner join p.teams t where p.id = " + playerId;
-        return (List<Team>) entityManager.createQuery(hql).getResultList();
+
+        CriteriaBuilder cb = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Team> query = cb.createQuery(Team.class);
+        Root<Player> player = query.from(Player.class);
+        Join<Player, Team> teams = player.join("teams");
+        query.select(teams).where(cb.equal(player.get("id"), playerId.toString()));
+        return entityManager.createQuery(query).getResultList();
     }
 
 }

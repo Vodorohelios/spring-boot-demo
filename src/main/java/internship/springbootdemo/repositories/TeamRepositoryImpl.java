@@ -29,8 +29,8 @@ public class TeamRepositoryImpl implements TeamRepository {
     @Override
     public List<Player> findPlayersOfTeam(Long teamId) {
         // using hql:
-//        String hql = "select p.id, p.name from Team t " +
-//                " inner join t.players p where t.id = " + teamId;
+//        String hql = "select p.id, p.name from Player p " +
+//                " inner join p.teams t where t.id = " + teamId;
 //        return (List<Player>) entityManager.createQuery(hql).getResultList();
 
         // using criteria:

@@ -33,18 +33,18 @@ public class FootballController {
      *  View all players that was in this team.
      */
     @GetMapping("/teams/{id}")
-    @ResponseBody
-    public List<Player> viewTeam(@PathVariable("id") Long id) {
-        return teamService.findPlayersOfTeam(id); // returns list of Player Objects
+    public String viewTeam(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("players", teamService.findPlayersOfTeam(id));
+        return "players-of-team";
     }
     
     /**
      *  View all teams where player was.
      */
     @GetMapping("/players/{id}")
-    @ResponseBody
-    public List<Team> viewPlayer(@PathVariable("id") Long id) {
-        return playerService.findTeamsOfPlayer(id); // returns list of Team Objects
+    public String viewPlayer(@PathVariable("id") Long id, Model model) {
+        model.addAttribute("teams", playerService.findTeamsOfPlayer(id));
+        return "teams-of-player";
     }
 
     /**
