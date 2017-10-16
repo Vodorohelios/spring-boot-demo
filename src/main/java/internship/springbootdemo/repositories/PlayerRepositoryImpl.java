@@ -37,4 +37,19 @@ public class PlayerRepositoryImpl implements PlayerRepository {
         return entityManager.createQuery(query).getResultList();
     }
 
+    // Method for testing cascading types operations
+    @Override
+    public void addPlayer(String name) {
+        Player player = new Player();
+        player.setName(name);
+
+        List<Team> teamList = new ArrayList<>();
+        Team team = new Team();
+        team.setName(name + " team");
+        teamList.add(team);
+        player.setTeams(teamList);
+
+        entityManager.persist(player);
+    }
+
 }

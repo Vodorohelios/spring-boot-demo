@@ -24,4 +24,9 @@ public class PlayerServiceImpl implements PlayerService {
         return playerRepository.findTeamsOfPlayer(id);
     }
 
+    @Override
+    public void addPlayer(String name) {
+        playerRepository.addPlayer(name);
+    }
+
 }

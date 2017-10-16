@@ -73,6 +73,16 @@ public class FootballController {
     }
 
     /**
+     * Add new player with default team list.
+     * This method is for testing cascading types operations.
+     */
+    @GetMapping("/add-player")
+    public String addPlayer(@RequestParam("name") String name) {
+        playerService.addPlayer(name);
+        return "redirect:/";
+    }
+
+    /**
      * View player's ids of a team.
      * @param teamId
      * @return

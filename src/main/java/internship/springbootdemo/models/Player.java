@@ -15,7 +15,7 @@ public class Player {
     @Column(name="name")
     private String name;
 
-    @ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
+    @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.REMOVE }, fetch = FetchType.LAZY)
     @JoinTable(
             name = "teams_players",
             joinColumns = { @JoinColumn(name = "player_id") },

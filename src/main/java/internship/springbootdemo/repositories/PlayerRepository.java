@@ -8,4 +8,6 @@ import java.util.List;
 public interface PlayerRepository {
     List<Player> getAllPlayers();
     List<Team> findTeamsOfPlayer(Long playerId);
+
+    void addPlayer(String name);
 }
