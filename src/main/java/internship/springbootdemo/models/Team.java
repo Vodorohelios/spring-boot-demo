@@ -15,7 +15,7 @@ public class Team {
     @Column(name="name")
     private String name;
 
-    @ManyToMany(mappedBy = "teams")
+    @ManyToMany(mappedBy = "teams", fetch = FetchType.EAGER)
     private List<Player> players = new ArrayList<>();
 
     public long getId() {

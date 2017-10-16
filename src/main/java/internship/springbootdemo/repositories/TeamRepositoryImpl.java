@@ -14,8 +14,8 @@ import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
-@Transactional
 @Repository
+@Transactional
 public class TeamRepositoryImpl implements TeamRepository {
     @PersistenceContext
     EntityManager entityManager;

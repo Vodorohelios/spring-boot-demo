@@ -17,6 +17,7 @@
                 <td>
                     <a href="#" th:href="@{/teams/{id}(id=__${team.id}__)}" th:text="${team.name}"></a>
                 </td>
+                <td th:text="${team.players[0].name}"></td>
             </tr>
         </table>
         <br />

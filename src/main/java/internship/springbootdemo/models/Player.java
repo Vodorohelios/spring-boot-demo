@@ -15,7 +15,7 @@ public class Player {
     @Column(name="name")
     private String name;
 
-    @ManyToMany(cascade = { CascadeType.ALL })
+    @ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
     @JoinTable(
             name = "teams_players",
             joinColumns = { @JoinColumn(name = "player_id") },

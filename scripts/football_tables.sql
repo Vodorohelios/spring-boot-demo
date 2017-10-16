@@ -30,7 +30,7 @@ INSERT INTO `teams` (`id`, `name`) VALUES
     (4, 'Chelsea'),
     (5, 'Arsenal'),
     (6, 'Bayern Munich');
-    
+
 INSERT INTO `players` (`id`, `name`) VALUES
   (1, 'player_1'),
   (2, 'player_2'),
@@ -38,7 +38,7 @@ INSERT INTO `players` (`id`, `name`) VALUES
   (4, 'player_4'),
   (5, 'player_5'),
   (6, 'player_6');
-  
+
 INSERT INTO `teams_players` (`team_id`, `player_id`) VALUES
   (1, 1),
   (1, 2),
@@ -56,4 +56,4 @@ INSERT INTO `teams_players` (`team_id`, `player_id`) VALUES
   (6, 2),
   (6, 3),
   (6, 4);
-  
+
