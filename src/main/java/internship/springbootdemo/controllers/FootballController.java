@@ -4,6 +4,7 @@ import internship.springbootdemo.models.Player;
 import internship.springbootdemo.models.Team;
 import internship.springbootdemo.services.PlayerService;
 import internship.springbootdemo.services.TeamService;
+import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,8 +25,14 @@ public class FootballController {
 
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("teams", teamService.findAllTeams());
-        model.addAttribute("players", playerService.findAllPlayers());
+        List<Team> teamList = teamService.findAllTeams();
+        System.out.println("Is initialized Team: " + Hibernate.isInitialized(teamList.get(0).getPlayers()));
+        model.addAttribute("teams", teamList);
+
+        List<Player> playerList = playerService.findAllPlayers();
+        System.out.println(Hibernate.isInitialized("Is initialized Player: " + playerList.get(0).getTeams()));
+        model.addAttribute("players", playerList);
+
         return "index";
     }
     

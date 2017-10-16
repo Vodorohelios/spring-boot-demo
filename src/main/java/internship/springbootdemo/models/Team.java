@@ -15,7 +15,7 @@ public class Team {
     @Column(name="name")
     private String name;
 
-    @ManyToMany(mappedBy = "teams", fetch = FetchType.EAGER)
+    @ManyToMany(mappedBy = "teams", fetch = FetchType.LAZY)
     private List<Player> players = new ArrayList<>();
 
     public long getId() {
@@ -34,8 +34,11 @@ public class Team {
         this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return "id=" + id + ",name=" + name;
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(List<Player> players) {
+        this.players = players;
     }
 }

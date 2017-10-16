@@ -15,7 +15,7 @@ public class Player {
     @Column(name="name")
     private String name;
 
-    @ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+    @ManyToMany(cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
     @JoinTable(
             name = "teams_players",
             joinColumns = { @JoinColumn(name = "player_id") },
@@ -37,6 +37,14 @@ public class Player {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public List<Team> getTeams() {
+        return teams;
+    }
+
+    public void setTeams(List<Team> teams) {
+        this.teams = teams;
     }
 
 }

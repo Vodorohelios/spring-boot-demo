@@ -21,6 +21,11 @@ public class TeamRepositoryImpl implements TeamRepository {
     EntityManager entityManager;
 
     @Override
+    public Team getById(Long id) {
+        return null;
+    }
+
+    @Override
     public List<Team> getAllTeams() {
         String hql = "FROM Team";
         return (List<Team>) entityManager.createQuery(hql).getResultList();
