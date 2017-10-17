@@ -10,4 +10,6 @@ public interface PlayerService {
     List<Team> findTeamsOfPlayer(Long id);
 
     void addPlayer(String name);
+
+    void deletePlayer(Long id);
 }

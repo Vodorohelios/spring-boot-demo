@@ -26,11 +26,15 @@ public class FootballController {
     @GetMapping("/")
     public String index(Model model) {
         List<Team> teamList = teamService.findAllTeams();
-        System.out.println("Is initialized Team: " + Hibernate.isInitialized(teamList.get(0).getPlayers()));
+        if (!teamList.isEmpty()) {
+            System.out.println("Is initialized Team: " + Hibernate.isInitialized(teamList.get(0).getPlayers()));
+        }
         model.addAttribute("teams", teamList);
 
         List<Player> playerList = playerService.findAllPlayers();
-        System.out.println(Hibernate.isInitialized("Is initialized Player: " + playerList.get(0).getTeams()));
+        if (!playerList.isEmpty()) {
+            System.out.println(Hibernate.isInitialized("Is initialized Player: " + playerList.get(0).getTeams()));
+        }
         model.addAttribute("players", playerList);
 
         return "index";
@@ -79,6 +83,12 @@ public class FootballController {
     @GetMapping("/add-player")
     public String addPlayer(@RequestParam("name") String name) {
         playerService.addPlayer(name);
+        return "redirect:/";
+    }
+
+    @GetMapping("delete-player")
+    public String deletePlayer(@RequestParam("id") Long id) {
+        playerService.deletePlayer(id);
         return "redirect:/";
     }
 

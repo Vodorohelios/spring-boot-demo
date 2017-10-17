@@ -52,4 +52,10 @@ public class PlayerRepositoryImpl implements PlayerRepository {
         entityManager.persist(player);
     }
 
+    @Override
+    public void deletePlayer(Long id) {
+        Player player = entityManager.getReference(Player.class, id);
+        entityManager.remove(player);
+    }
+
 }

@@ -29,4 +29,9 @@ public class PlayerServiceImpl implements PlayerService {
         playerRepository.addPlayer(name);
     }
 
+    @Override
+    public void deletePlayer(Long id) {
+        playerRepository.deletePlayer(id);
+    }
+
 }

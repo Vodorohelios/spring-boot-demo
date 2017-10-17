@@ -10,4 +10,6 @@ public interface PlayerRepository {
     List<Team> findTeamsOfPlayer(Long playerId);
 
     void addPlayer(String name);
+
+    void deletePlayer(Long id);
 }

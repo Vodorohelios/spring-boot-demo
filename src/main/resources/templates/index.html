@@ -11,9 +11,20 @@
 
 <div>
     <h1>Football</h1>
+    <form action="#" th:action="@{/add-player}" method="get">
+        <label>Enter new player's name:</label>
+        <input type="text" name="name" />
+    </form>
+
+    <form action="#" th:action="@{/delete-player}" method="get">
+        <label>Enter player's id to delete:</label>
+        <input type="text" name="id" />
+    </form>
+    <br />
     <div>
         <table border="1">
             <tr th:each="team : ${teams}">
+                <td th:text="${team.id}"></td>
                 <td>
                     <a href="#" th:href="@{/teams/{id}(id=__${team.id}__)}" th:text="${team.name}"></a>
                 </td>
@@ -22,11 +33,13 @@
         <br />
         <table border="1">
             <tr th:each="player : ${players}">
+                <td th:text="${player.id}"></td>
                 <td>
                     <a href="#" th:href="@{/players/{id}(id=__${player.id}__)}" th:text="${player.name}"></a>
                 </td>
             </tr>
         </table>
+        <br />
     </div>
 </div>
 

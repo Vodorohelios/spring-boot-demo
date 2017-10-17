@@ -15,7 +15,8 @@ public class Team {
     @Column(name="name")
     private String name;
 
-    @ManyToMany(mappedBy = "teams", fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "teams", fetch = FetchType.LAZY
+            /*cascade = { CascadeType.ALL }*/)
     private List<Player> players = new ArrayList<>();
 
     public long getId() {

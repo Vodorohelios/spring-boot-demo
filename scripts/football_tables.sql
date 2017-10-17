@@ -17,10 +17,10 @@ CREATE TABLE IF NOT EXISTS `players` (
 -- join table
 CREATE TABLE IF NOT EXISTS `teams_players` (
   `team_id` int(5) NOT NULL,
-  `player_id` int(5) NOT NULL,
+  `player_id` int(5) NOT NULL
   -- PRIMARY KEY (team_id, player_id),
-  FOREIGN KEY (team_id) REFERENCES teams(id),
-  FOREIGN KEY (player_id) REFERENCES players(id)
+#   ,FOREIGN KEY (team_id) REFERENCES teams(id),
+#   FOREIGN KEY (player_id) REFERENCES players(id)
 );
 
 INSERT INTO `teams` (`id`, `name`) VALUES
